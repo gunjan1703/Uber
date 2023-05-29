@@ -48,3 +48,14 @@ class GetOrdersView(APIView):
         serializers.is_valid(raise_exception=True)
         serializers.save()
         return Response({"message","Done"})
+
+class DeleteStudentView(APIView):
+       def get(self,request,pk):
+        instance = Student.objects.get(id=pk)
+        instance.delete()
+        return Response({"message","delete"})
+
+class StudentsAddressView(APIView):
+      def get(self,request,pk):
+          instance = Students.Objects.filter(id=pk)
+          serializers = StudentsAddress Serializers(instance)
